@@ -1,6 +1,8 @@
 import { Feather } from '@expo/vector-icons'
 import { StatusBar, View } from 'react-native'
 
+import theme from '@src/styles/theme'
+
 import MyText from '@src/components/MyText'
 import ToggleTheme from '@src/components/ToggleTheme'
 
@@ -34,6 +36,10 @@ export default function Home() {
         <MyText content='Eslint' />
         <MyText content='Prettier' />
         <MyText content='Path aliases' />
+        <MyText
+          className='text-primary-500'
+          content={`Custom theme ${theme.primary[500]}`}
+        />
 
         <ToggleTheme className='mt-8' />
       </View>
