@@ -8,11 +8,8 @@ module.exports = function (api) {
         'module-resolver',
         {
           root: ['.'],
-          extensions: ['.ts', '.tsx', '.jsx', '.js', '.json'],
-          alias: {
-            '@src': './src',
-            '@assets': './assets'
-          }
+          alias: { '@src': './src', '@assets': './assets' },
+          extensions: ['.ts', '.tsx', '.jsx', '.js', '.json']
         }
       ]
     ]

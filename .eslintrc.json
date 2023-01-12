@@ -4,6 +4,7 @@
   "rules": {
     "semi": "off",
     "jsx-quotes": "off",
+    "comma-dangle": "off",
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/naming-convention": [
       "error",
