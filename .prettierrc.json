@@ -15,6 +15,7 @@
     "^./|^../",
     "@expo|react-native",
     "^@src/styles",
+    "^@src/screens",
     "^@src/components",
     "^@src/components/atoms",
     "^@src/components/icons",
