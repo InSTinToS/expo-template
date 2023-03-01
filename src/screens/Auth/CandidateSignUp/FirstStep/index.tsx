@@ -9,6 +9,7 @@ import {
   fullNameValidation,
   passwordValidation
 } from '@src/shared/validations'
+
 import { ControllerProps } from 'react-hook-form'
 
 interface IFirstStepProps {

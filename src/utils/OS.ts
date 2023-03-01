@@ -1,6 +1,6 @@
-import sizes from '../styles/custom/sizes'
-
 import { Platform } from 'react-native'
+
+import sizes from '@src/styles/custom/sizes'
 
 type TOSRelative = (mobile: any, web: any) => any
 

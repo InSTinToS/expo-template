@@ -7,10 +7,10 @@ import colors from '@src/styles/custom/colors'
 
 import AuthLayout from '@src/components/layouts/AuthLayout'
 
-import usePosts from '@src/hooks/api/usePosts'
+import { TAuthStackScreen } from '@src/routes/AuthRoutes.route'
+
 import useAuthZoom from '@src/hooks/useAuthZoom'
 
-import { TRootStackScreen } from 'App'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
@@ -25,8 +25,7 @@ interface ICandidateSignUpRequest {
 
 const CandidateSignUp = ({
   navigation
-}: TRootStackScreen<'CandidateSignUp'>) => {
-  const { data, isSuccess } = usePosts()
+}: TAuthStackScreen<'CandidateSignUp'>) => {
   const [step, setStep] = useState(1)
   const { hideHeader, nav, showInfo, removePadding } = useAuthZoom({
     arrowColor: colors.candidate[500]
@@ -42,8 +41,6 @@ const CandidateSignUp = ({
       experience: ''
     }
   })
-
-  console.log('React Query data:', isSuccess ? data[0] : '')
 
   const steps = {
     1: (
@@ -63,12 +60,13 @@ const CandidateSignUp = ({
         showInfo={showInfo}
         onSubmit={() => {
           handleSubmit(onSubmit)()
+          navigation.navigate('SignIn')
         }}
       />
     )
   }
 
-  const onSubmit = (data: any) => {
+  const onSubmit = data => {
     console.log(data)
   }
 

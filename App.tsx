@@ -1,39 +1,25 @@
+import {
+  OpenSans_400Regular,
+  OpenSans_400Regular_Italic,
+  OpenSans_600SemiBold,
+  OpenSans_600SemiBold_Italic
+} from '@expo-google-fonts/open-sans'
+
 import '@src/styles'
 
-import CandidateSignUp from '@src/screens/CandidateSignUp'
+import Auth from '@src/routes/AuthRoutes.route'
 
-import { NavigationContainer } from '@react-navigation/native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import type { NativeStackScreenProps } from '@react-navigation/native-stack'
-import { QueryClient, QueryClientProvider } from 'react-query'
-
-const { Navigator, Screen } = createNativeStackNavigator()
-
-export type TRootStackParamList = {
-  SignIn: undefined
-  SignUp: undefined
-  AuthSelect: undefined
-  RequesterSignUp: undefined
-  CandidateSignUp: undefined
-  CandidateSecondStep: undefined
-}
-
-export type TRootStackScreen<T extends keyof TRootStackParamList> =
-  NativeStackScreenProps<TRootStackParamList, T>
-
-const queryClient = new QueryClient()
+import { useFonts } from 'expo-font'
 
 export default function App() {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <NavigationContainer>
-        <Navigator
-          initialRouteName='CandidateSignUp'
-          screenOptions={{ headerShown: false, animation: 'fade_from_bottom' }}
-        >
-          <Screen name='CandidateSignUp' component={CandidateSignUp} />
-        </Navigator>
-      </NavigationContainer>
-    </QueryClientProvider>
-  )
+  const [fontsLoaded] = useFonts({
+    OpenSans_400Regular,
+    OpenSans_400Regular_Italic,
+    OpenSans_600SemiBold,
+    OpenSans_600SemiBold_Italic
+  })
+
+  if (!fontsLoaded) return null
+
+  return <Auth />
 }
